@@ -27,7 +27,7 @@ const Buger = (props) => {
 
     return (
 
-        <div style={Burgur}>
+        <div style={Burgur} className="container-fluid">
             <BurgerIngredients type="bread-top" />
             {tranformIngredient}
             <BurgerIngredients type="bread-bottom" />

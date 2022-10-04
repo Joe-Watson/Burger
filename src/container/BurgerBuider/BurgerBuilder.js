@@ -21,7 +21,6 @@ class BugerBuilder extends Component {
             <Aux>
                 <Buger ingrdients={this.state.ingrdients} />
                 <BuildControls />
-                <p>label</p>
             </Aux>
         )
     }

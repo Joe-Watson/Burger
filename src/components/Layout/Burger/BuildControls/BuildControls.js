@@ -1,16 +1,7 @@
 import React from "react"
-import BuildControl from "./BuildControl/BuildControl"
-const BuildControls1 = {
-    height: '300',
-    width: '100',
-    backgroundColor: '#ce8c06',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    boxShadow: '0 2 1 #ccc',
-    margin: 'auto',
-    padding: '10 0'
-}
+import BuildControlDiv from "./BuildControl/BuildControl"
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle";
 
 const Control = [
     { label: "Seed", type: "seed" },
@@ -23,10 +14,9 @@ const Control = [
 
 const BuildControls = (props) => {
 
-    return <div style={BuildControls1}>
-        {Control.map((ctrl) => {
-            <BuildControl key={ctrl.label} label={ctrl.type} />
-        })}
+    return <div className="container-fluid  d-flex flex-column shadow-sm ">
+        {Control.map((ctrl) => (<BuildControlDiv key={ctrl.label} label={ctrl.type} />)
+        )}
     </div>
 }
 export default BuildControls
