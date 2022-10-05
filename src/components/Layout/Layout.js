@@ -1,6 +1,5 @@
 import React from "react";
 import Aux from "../../Hoc/jux"
-import Classes from "./Layout.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 const Layout = (props) => (

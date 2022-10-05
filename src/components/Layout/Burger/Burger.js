@@ -9,12 +9,13 @@ const Burgur = {
     height: '250',
     overflow: 'scroll',
     textAlign: 'center',
+    alignItems: 'center',
     fontWeight: 'bold',
     fontSize: '1.2'
 }
 const Buger = (props) => {
     let tranformIngredient = Object.keys(props.ingrdients)
-        .map(isKey => {
+        .map((isKey) => {
             //iskey store all the string value of Object
             return [...Array(props.ingrdients[isKey])]
                 .map((_, i) => { return <BurgerIngredients key={isKey + i} type={isKey} /> })
@@ -22,7 +23,7 @@ const Buger = (props) => {
             return arr.concat(el)
         }, [])
     if (tranformIngredient.length === 0) {
-        tranformIngredient = <p>Please enter the ingrdients</p>
+        tranformIngredient = <p className="text-success">Please enter the ingrdients</p>
     }
 
     return (
