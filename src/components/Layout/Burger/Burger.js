@@ -3,16 +3,15 @@ import BurgerIngredients from "./BurgerIngredients/BurgerIngredients";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import "../Burger/Burger.css"
-const Burgur = {
-    width: '100%',
-    margin: 'auto',
-    height: '250',
-    overflow: 'scroll',
-    textAlign: 'center',
-    alignItems: 'center',
-    fontWeight: 'bold',
-    fontSize: '1.2'
-}
+// const Burgur = {
+//     width: '100%',
+//     margin: 'auto',
+//     height: '250',
+//     textAlign: 'center',
+//     alignItems: 'center',
+//     fontWeight: 'bold',
+//     fontSize: '1.2'
+// }
 const Buger = (props) => {
     let tranformIngredient = Object.keys(props.ingrdients)
         .map((isKey) => {
@@ -25,10 +24,10 @@ const Buger = (props) => {
     if (tranformIngredient.length === 0) {
         tranformIngredient = <p className="text-success">Please enter the ingrdients</p>
     }
-
+    // style={Burgur}
     return (
 
-        <div style={Burgur} className="container-fluid">
+        <div className="container-fluid  overflow-scroll">
             <BurgerIngredients type="bread-top" />
             {tranformIngredient}
             <BurgerIngredients type="bread-bottom" />

@@ -29,7 +29,8 @@ class BugerBuilder extends Component {
 
         },
         totalPrize: 100,
-        purchasable: false
+        purchasable: false,
+        purchasing: false
     }
     udatePurchaseState(ingrdients) {
         const sum = Object.keys(ingrdients)
@@ -39,7 +40,7 @@ class BugerBuilder extends Component {
         this.setState({ purchasable: sum > 0 })
 
     }
-    addIngrdientsHander = (type) => {
+    addIngrdientsHandler = (type) => {
         ///First I need to know old ingrdient
         const oldCount = this.state.ingrdients[type]
         const updatedCount = oldCount + 1
@@ -54,7 +55,7 @@ class BugerBuilder extends Component {
         this.setState({ totalPrize: newPrize, ingrdients: updatedIngrdients })
         this.udatePurchaseState(updatedIngrdients);
     }
-    removeIngrdientsHander = (type) => {
+    removeIngrdientsHandler = (type) => {
         const oldCount = this.state.ingrdients[type];
         if (oldCount <= 0) {
             return;
@@ -70,26 +71,46 @@ class BugerBuilder extends Component {
         this.setState({ totalPrize: newPrize, ingrdients: updatedIngrdients })
         this.udatePurchaseState(updatedIngrdients);
     }
+    purchaseHandler = () => {
+        this.setState({ purchasing: true })
+
+    }
+    purchaseCloser = () => {
+        this.setState({ purchasing: false })
+
+    }
+    purchaseContunHandler = () => {
+        alert("You Continu")
+    }
+
     render() {
+
         const disableInfro = {
             ...this.state.ingrdients
         };
         for (let key in disableInfro) {
-            disableInfro[key] = disableInfro[key] <= 0
+            disableInfro[key] = disableInfro[key] <= 0;
         }
         return (
             <Aux>
-                <Model>
-                    <Summary ingrdients={this.state.ingrdients} />
-                </Model>
                 <Buger ingrdients={this.state.ingrdients} />
                 <BuildControls
-                    ingrdientAdded={this.addIngrdientsHander}
-                    ingrdientRemoved={this.removeIngrdientsHander}
+                    ingrdientAdded={this.addIngrdientsHandler}
+                    ingrdientRemoved={this.removeIngrdientsHandler}
                     disabled={disableInfro}
                     prize={this.state.totalPrize}
-                    purchasable={this.state.purchasable} />
+                    purchasable={this.state.purchasable}
+                    Ordered={this.purchaseHandler} />
+                {/* show order Summary */}
+                <Model show={this.state.purchasing} closed={this.purchaseCloser}>
+                    <Summary ingrdients={this.state.ingrdients}
+                        purchaseCancel={this.purchaseCloser}
+                        purchaseContinu={this.purchaseContunHandler}
+                        price={this.state.totalPrize}
+                    />
+                </Model>
             </Aux>
+
         )
     }
 }
