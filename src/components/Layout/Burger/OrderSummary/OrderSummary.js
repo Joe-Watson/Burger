@@ -17,9 +17,9 @@ const Summary = (props) => {
         <ul className="p-5">
             {IngredientSummary}
         </ul>
-        <p>Total Price:{props.price}</p>
-        <p className="text-success fs-3" >Continu to checkout?</p>
-        <Button btnType="btn btn-success m-2" clicked={props.purchaseContinu}>Continu</Button>
+        <p><strong>Total Price: {props.price}</strong></p>
+        <p className="text-success fs-3" >Continue to checkout?</p>
+        <Button btnType="btn btn-success m-2" clicked={props.purchaseContinu}>Continue</Button>
         <Button btnType="btn btn-danger m-2" clicked={props.purchaseCancel}>Cancel</Button>
 
 

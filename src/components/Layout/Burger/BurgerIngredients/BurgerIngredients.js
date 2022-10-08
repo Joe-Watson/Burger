@@ -34,7 +34,7 @@ class BurgerIngredients extends Component {
                 )
                 break;
             case ("salad"):
-                ingredients = (< div className="Salad " style={{ height: 30 }}>
+                ingredients = (< div className="Salad " style={{ height: 40 }}>
                     <p className="fs-6 Salad1">salad</p>
                 </div >
                 )
